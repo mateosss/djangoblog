@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block contenido %}
+        <div id="index-banner" class="parallax-container">
+            <div class="row center">
+                <div class="container">
+                    <h1 class="header truncate center cyan-light-text light">Conversor</h1>
+                    <div class="row center">
+                        <h5 class="header col s12">Conversor de monedas con Material Design</h5>
+                        <p>¿Hacía falta? ¡Por supuesto que sí!</p>
+                    </div >
+                </div>
+            </div>
+            <div class="parallax"><img src="{% static 'img/conversor.jpg' %}" alt="Unsplashed background img 2"></div>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <div class="row center">
+                    <div align=center><form class='calculadora'>
+                        <h2>Conversor</h2>
+
+
+
+                        <div class="row">
+                            <div class="col s12 m5 l5">
+                                <div class="card-panel white">
+                                    <input  id="cuadro1" style="font-size:34px; " value="0" type="text" class="validate">
+                                    <select id="select1">                        
+                                        <option value="1">Pesos Argentinos</option>
+                                        <option value="2">Dolares</option>
+                                        <option value="3">Euros</option>
+                                        <option value="4">Reales</option>
+                                        <option value="5">Pesos Chilenos</option>
+                                        <option value="5">Pesos Uruguayos</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col s12 m2 l2" style="margin-top:8%;margin-bottom:8%;"><a id="btnConvertir" onclick="convertir()"class="btn-floating btn-large waves-effect waves-light cyan"><i class="mdi-hardware-keyboard-arrow-right"></i></a></div>
+
+                            <div class="col s12 m5 l5">
+                                <div class="card-panel white">
+                                    <input  readonly id="cuadro2" style="font-size:34px; " value="0" type="text" class="validate">
+                                    <select id="select2">                        
+                                        <option value="1">Pesos Argentinos</option>
+                                        <option value="2">Dolares</option>
+                                        <option value="3">Euros</option>
+                                        <option value="4">Reales</option>
+                                        <option value="5">Pesos Chilenos</option>
+                                        <option value="5">Pesos Uruguayos</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>                        
+
+
+
+
+
+                        </form></div>
+
+
+                </div>
+            </div>
+        </div>
+
+   {% endblock %}
+{% block scripts %}
+    <script>
+        var relacion = [1.0, 8.86387, 9.49214, 2.92509, 0.01449, 0.32991]
+        function convertir(){
+            var cuadro1 = parseFloat(document.getElementById("cuadro1").value);
+            var cuadro2 = document.getElementById('cuadro2');
+            var select1 = document.getElementById("select1").selectedIndex;
+            var select2 = document.getElementById("select2").selectedIndex;
+            var res = (relacion[select1] * cuadro1) / relacion[select2];
+            cuadro2.value= res.toFixed(5);
+        }
+    </script>
+{% endblock %}

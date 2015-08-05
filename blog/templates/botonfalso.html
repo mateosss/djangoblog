@@ -1,0 +1,118 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block contenido %}
+<div id="index-banner" class="parallax-container">
+    <div class="row center">
+        <div class="container">
+            <h1 class="header truncate center cyan-light-text light">Concurso</h1>
+            <div class="row center">
+                <h5 class="header col s12">Envíenos un mensaje para participar por una asombrosa tablet wacom!</h5>
+                <p>Tablet Wacom Intuos pro small, una tablet perfecta para personas aficionadas al dibujo y al arte digital.</p>
+            </div >
+        </div>
+    </div>
+    <div class="parallax"><img src="{% static 'img/contacto.png' %}" alt="Unsplashed background img 2"></div>
+</div>
+
+<div class="container">
+
+
+    <!-- Modal Structure -->
+    <div id="modal1" class="modal modal-fixed-footer">
+        <div class="modal-content">
+            <h4>Buen Trabajo</h4>
+            <p>Impresionante, cuanta sagacidad, cuanto conocimiento, cuanta instrospección, ¿Cuánto tiempo gastado al cohete no? PD: No hay tablet :p</p>
+        </div>
+        <div class="modal-footer">
+            <a href="index.html" class="modal-action modal-close waves-effect waves-cyan btn-flat ">Ok :C</a>
+        </div>
+    </div>
+
+
+
+    <div class="section">
+        <div class="row center">
+            <div class="input-field col s12 m6 offset-m3 l6 offset-l3">
+                <i class="mdi-action-account-circle prefix"></i>
+                <input id="name" type="text" class="validate">
+                <label for="name">Nombre completo</label>
+            </div>
+            <div class="input-field col s12 m6 offset-m3 l6 offset-l3">
+                <i class="mdi-content-mail prefix"></i>
+                <input id="mail" type="text" class="validate">
+                <label for="mail">Correo Electrónico</label>
+            </div> 
+            <input type="date" value="Fecha de Nacimiento" style="cursor:pointer;" class="datepicker col s12 m8 offset-m2 l6 offset-l3 ">
+            <div class="input-field col s12 m8 offset-m2 l6 offset-l3">
+                <select>                        
+                    <option value="" disabled selected>¿De dónde eres?</option>
+                    <option value="1">Argentina</option>
+                    <option value="2">Chile</option>
+                    <option value="3">Uruguay</option>
+                    <option value="4">Brasil</option>
+                    <option value="5">España</option>
+                </select>
+            </div>
+
+
+
+
+
+            <div class="row">
+                <form class="col s12 m6 offset-m3 l6 offset-l3">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <textarea id="textarea1" class="materialize-textarea"></textarea>
+                            <label for="textarea1">Mensaje</label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <button class="modal-trigger btn-large waves-effect waves-light cyan" type="submit" name="action" onMouseOver="broma(this)" href="#modal1" onClick="tocar()">Enviar
+                <i class="mdi-content-send right"></i>
+            </button>
+        </div>
+
+    </div>
+</div>
+{% endblock %}
+
+
+{% block scripts %}
+<script>    
+    var lugar = false;
+    var primera= true;
+    var audio = new Audio('https://dl.dropboxusercontent.com/u/105638235/Blog/BlogViejo/res/oubitchgetouttheway.mp3');
+    function toast(toast){
+        Materialize.toast(toast, 4000);
+    }
+    function broma(boton){
+        if(primera){
+            primera=false;
+            console.log("play");
+            audio.play();
+            audio.loop = true;}
+
+        if (lugar == false){
+            boton.style.float = "right";
+            toast("Agarrame si podes!");
+            lugar = true;
+            console.log("derecha");
+        }
+        else{
+
+            console.log("izquierda");
+            toast("Olé!");
+            boton.style.float = "left";
+            lugar = false;
+        }
+
+    }
+
+    function tocar(){  
+        toast("Bien!, pero no hay tablet :C");
+        audio.stop();
+    }
+
+</script>
+{% endblock %}

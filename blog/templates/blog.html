@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block contenido %}
+<div id="index-banner" class="parallax-container">
+    <div class="row center">
+        <div class="container">
+            <h1 class="header truncate center cyan-text light">Blog</h1>
+            <div class="row center">
+                <h5 class="header col s12">Al fin la sección que hacer honor al nombre del ejercicio.</h5>
+                <p>¿Y por qué si no ibamos a hacer todo esto?</p>
+            </div >
+        </div>
+    </div>
+    <div class="parallax"><img src="{% static 'img/default.jpg' %}" alt="Unsplashed background img 2"></div>
+</div>
+
+{% for i in posts %}
+<div class="container">
+    <div class="row center">
+        <div class="col s12 m12 l12">
+            <div class="card-panel">
+                <h4>{{i.titulo}}</h4>
+                <p class="light">{{i.resumen}}</p>
+
+                <a class="waves-effect waves-light cyan btn tooltipped" data-position="right" data-delay="50" data-tooltip="{{i.titulo}}" target="_blank" href="{% url 'app_blog:irPost' i.id %}"> <i class="mdi-navigation-arrow-f orward left"></i>Ver Post</a> 
+            </div>
+
+        </div>
+
+    </div>
+</div>
+{% endfor %}
+
+{% endblock %}
+{% block scripts %}
+{% endblock %}

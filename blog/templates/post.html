@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block contenido %}
+<div id="index-banner" class="parallax-container">
+    <div class="row center">
+        <div class="container">
+            <h1 class="">{{post.titulo}}</h1>
+            <div class="row center">
+                <h5 class="header col s12">{{post.resumen}}</p>
+            </div >
+        </div>
+    </div>
+    <div class="parallax"><img src="/static/img/{{post.parallax}}" alt="Unsplashed background img 2"></div>
+</div>
+
+<div class="container" style="background-color=red;">
+    <div class="section row center">
+        <p class="light">{{post.contenido}}</p>
+
+    </div>
+
+</div>
+
+</div>
+
+{% endblock %}
+{% block comentarios %}
+<h3 class="section-heading">Comentarios</h3>
+<div class="container">
+    <div class="row center">
+        <div class="col s12 m12 l12">
+            <div class="card-panel">
+                {% for comentario in comentarios %}
+                <h5>{{comentario.nombre}}</h5>
+                <small>{{comentario.fecha}}</small>
+                <p>{{comentario.mensaje}}</p>
+                <hr>
+                {% endfor %}
+            </div></div></div></div>
+<div class="container">
+
+    <div id="modal1" class="modal modal-fixed-footer">
+        <div class="modal-content">
+            <h4>Hemos enviado tu comentario</h4>
+            <p>Gracias por comentar!</p>
+        </div>
+        <div class="modal-footer">
+            <a class="modal-action modal-close waves-effect waves-cyan btn-flat " onclick="$('#contactForm').submit();">Enviar Mensaje</a>
+        </div>
+    </div>
+    <form action="" method="POST" name="sentMessage" id="contactForm">
+        {% csrf_token %} 
+        <div class="section">
+            <div class="row center">
+                <h3 class="section-heading">Comente su opinión</h3>
+
+                <div class="input-field col s12 m6 offset-m3 l6 offset-l3">
+                    <i class="mdi-action-account-circle prefix"></i>
+                    <input name="nombre" id="name" type="text" class="validate form-control" required data-validation-required-message="Por favor ingresa tu nombre">
+                    <label for="name">Nombre</label>
+                </div>
+                <div class="row">
+                    <div class="col s12 m6 offset-m3 l6 offset-l3">
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <textarea name="mensaje" rows="5" required data-validation-required-message="Por favor ingrese mensaje" id="textarea1" class="form-control materialize-textarea"></textarea>
+                                <label for="textarea1">Mensaje</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="modal-trigger btn-large waves-effect waves-light cyan" name="action" href="#modal1">Enviar
+                    <i class="mdi-content-send right"></i>
+                </button>
+            </div>
+
+        </div></form>
+</div>
+{% endblock %}
+
+{% block scripts %}
+
+{% endblock %}

@@ -1,0 +1,16 @@
+from django.conf.urls import patterns, include, url
+urlpatterns = patterns('',
+                       url(r'^$', 'blog.views.home', name='home'),
+                       url(r'^blog/$', 'blog.views.blog', name='blog'),
+                       url(r'^calculadora/$', 'blog.views.calculadora', name='calculadora'),
+                       url(r'^cronometro/$', 'blog.views.cronometro', name='cronometro'),
+                       url(r'^conversor/$', 'blog.views.conversor', name='conversor'),
+                       url(r'^galeria/$', 'blog.views.galeria', name='galeria'),
+                       url(r'^botonfalso/$', 'blog.views.botonfalso', name='botonfalso'),
+                       url(r'^curriculum/$', 'blog.views.curriculum', name='curriculum'),
+                       url(r'^contacto/$', 'blog.views.contacto', name='contacto'),
+                       url(r'^post/(?P<id_post>[0-9]+)/$', 'blog.views.verPost', name='irPost'),
+                       #url(r'^ver_post/(?P<id_post>[0-9]+)/$', 'blog.views.ver_post', name='vermipost'),
+                       #url(r'^contactame/$', 'blog.views.contact', name='contactame'),
+                       #url(r'^comentar/(?P<id_post>[0-9]+)/$', 'blog.views.comentar', name='comentar'),
+                      )

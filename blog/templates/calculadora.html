@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block contenido %}
+        <div id="index-banner" class="parallax-container">
+            <div class="row center">
+                <div class="container">
+                    <h1 class="header truncate center cyan-text light">Calculadora</h1>
+                    <div class="row center">
+                        <h5 class="header col s12">Calculadora con Material Design</h5>
+                        <p>¿Y por qué no?</p>
+                    </div >
+                </div>
+            </div>
+            <div class="parallax"><img src="{% static 'img/calculadora.png' %}" alt="Unsplashed background img 2"></div>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <div class="row center">
+
+                    <h2>Calculadora</h2>
+
+                    <div class="row"><form class="calculadora col s12">
+                        <div class="row">
+                            <div class="input-field col s12 m12 l6 offset-l3">
+                                <div class="card-panel white">
+                                    <input  id="display" style="font-size:34px; text-align:right;" value="0" type="text" class="validate"></div>
+
+                            </div>
+                        </div>
+
+                        <div class="card-panel cyan col s12 m12 l6 offset-l3">
+                            <div><a class="col s3 m3 l3 btn-flat btn-large white-text cyan waves-effect waves-light" style="font-size:24px;" id="btnPar1" onclick="play(this)" value='('>(</a>  
+                                <a class="col s3 m3 l3 btn-flat btn-large white-text cyan waves-effect waves-light" style="font-size:24px;" id="btnPar2" onclick="play(this)" value=')'>)</a>
+                                <a class="col s3 m3 l3 btn-flat btn-large white-text cyan waves-effect waves-light" style="font-size:24px;" id="btnSupr" onclick="play(this)" value='←'>←</a>
+                                <a class="col s3 m3 l3 btn-flat btn-large white-text cyan waves-effect waves-light" style="font-size:24px;" id="btnCE" onclick="play(this)" value='CE'>CE</a>
+                            </div>
+
+                            <div><a class="col s3 m3 l3 btn-flat btn-large white-text cyan waves-effect waves-light" style="font-size:24px;" id="btn1" onclick="play(this)" value='1'>1</a>
+                                <a class="col s3 m3 l3 btn-flat btn-large white-text cyan waves-effect waves-light" style="font-size:24px;" id="btn2" onclick="play(this)" value='2'>2</a>
+                                <a class="col s3 m3 l3 btn-flat btn-large white-text cyan waves-effect waves-light" style="font-size:24px;" id="btn3" onclick="play(this)" value='3'>3</a>
+                                <a class="col s3 m3 l3 btn-flat btn-large white-text cyan waves-effect waves-light" style="font-size:24px;" id="btnMas" onclick="play(this)" value='+'>+</a></div>
+                            <div><a class="col s3 m3 l3 btn-flat btn-large white-text cyan waves-effect waves-light" style="font-size:24px;" id="btn4" onclick="play(this)" value='4'>4</a>
+                                <a class="col s3 m3 l3 btn-flat btn-large white-text cyan waves-effect waves-light" style="font-size:24px;" id="btn5" onclick="play(this)" value='5'>5</a>
+                                <a class="col s3 m3 l3 btn-flat btn-large white-text cyan waves-effect waves-light" style="font-size:24px;" id="btn6" onclick="play(this)" value='6'>6</a>
+                                <a class="col s3 m3 l3 btn-flat btn-large white-text cyan waves-effect waves-light" style="font-size:24px;" id="btnMenos" onclick="play(this)" value='-'>-</a></div>
+                            <div><a class="col s3 m3 l3 btn-flat btn-large white-text cyan waves-effect waves-light" style="font-size:24px;" id="btn7" onclick="play(this)" value='7'>7</a>
+                                <a class="col s3 m3 l3 btn-flat btn-large white-text cyan waves-effect waves-light" style="font-size:24px;" id="btn8" onclick="play(this)" value='8'>8</a>
+                                <a class="col s3 m3 l3 btn-flat btn-large white-text cyan waves-effect waves-light" style="font-size:24px;" id="btn9" onclick="play(this)" value='9'>9</a>
+                                <a class="col s3 m3 l3 btn-flat btn-large white-text cyan waves-effect waves-light" style="font-size:24px;" id="btnPor" onclick="play(this)" value='*'>×</a></div>
+                            <div><a class="col s3 m3 l3 btn-flat btn-large white-text cyan waves-effect waves-light" style="font-size:24px;" id="btn0" onclick="play(this)" value='0'>0</a>
+                                <a class="col s3 m3 l3 btn-flat btn-large white-text cyan waves-effect waves-light" style="font-size:24px;" id="btnPunto" onclick="play(this)" value='.'>.</a>
+                                <a class="col s3 m3 l3 btn-flat btn-large white-text cyan waves-effect waves-light" style="font-size:24px;" id="btnIgual" onclick="play(this)" value='='>=</a>
+                                <a class="col s3 m3 l3 btn-flat btn-large white-text cyan waves-effect waves-light" style="font-size:24px;" id="btnDividido" onclick="play(this)" value='/'>÷</a></div>
+                            <div><a class="col s3 m3 l3 btn-flat btn-large white-text cyan waves-effect waves-light" style="font-size:24px;" id="btnPotencia" onclick="play(this)" value='pot'>x<sup>y</sup></a>
+                                <a class="col s3 m3 l3 btn-flat btn-large white-text cyan waves-effect waves-light" style="font-size:24px;" id="btnRaiz" onclick="play(this)" value='√'><sup>y</sup>√x</a>
+                                <a class="col s3 m3 l3 btn-flat btn-large white-text cyan waves-effect waves-light" style="font-size:24px;" id="btnExp" onclick="play(this)" value='e'>×10<sup>y</sup></a>
+                                <a class="col s3 m3 l3 btn-flat btn-large white-text cyan waves-effect waves-light" style="font-size:24px;" id="btnAns" onclick="play(this)" value='Ans'>Ans</a></div>                
+                        </div> </form></div>
+                </div>
+            </div>
+        </div>
+{% endblock %}
+{% block scripts %}
+    <script>
+        var igual = true;
+        var Ans;
+        function play(boton){
+            //            $("#display").focus();
+            var valor = boton.getAttribute("value");
+            var display = document.getElementById("display");
+
+            if(igual && (boton.getAttribute("value")=="1" || boton.getAttribute("value")=="2" || boton.getAttribute("value")=="3" || boton.getAttribute("value")=="4" || boton.getAttribute("value")=="5" || boton.getAttribute("value")=="6" || boton.getAttribute("value")=="7" || boton.getAttribute("value")=="8" || boton.getAttribute("value")=="9" || boton.getAttribute("value")=="(" || boton.getAttribute("value")==")")){
+                display.value="";
+                igual = false;
+            }else{igual=false;}
+
+            switch(valor){
+                case "CE":
+                    display.value="";
+                    break;
+                case "←":
+                    display.value    = display.value.substring(0, display.value.length-1);
+                    break;
+                case "e":
+                    display.value+="*Math.pow(10,Y)";
+                    break;
+                case "√":
+                    display.value+="(Math.pow(X,(1/Y)))";
+                    break;
+                case "pot":
+                    display.value+="(Math.pow(X,Y))";
+                case "=":
+                    Ans = eval(display.value);
+                    display.value = Ans;
+                    igual = true;
+
+                    break;
+                default:
+                    display.value += valor;
+
+            }}
+
+    </script>
+{% endblock %}

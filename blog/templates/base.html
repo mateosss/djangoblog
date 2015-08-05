@@ -1,0 +1,85 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8"/>
+        <title>Mateo de Mayo</title>
+        <link rel="icon" type=".png" href="{% static 'img/titulo.png' %}">
+        <!--Import materialize.css-->
+        <link href="{% static 'css/materialize.min.css' %}" type="text/css" rel="stylesheet" media="screen,projection">
+        <link href="{% static 'css/style.css' %}" type="text/css" rel="stylesheet" media="screen,projection">        <!--Let browser know website is optimized for mobile-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    </head>
+    <body>  
+        <nav class="white" role="navigation">
+            <div class="nav-wrapper container">
+                <a id="logo-container" href="{% url 'app_blog:home' %}" class="truncate brand-logo">Mateo de Mayo</a>
+                <ul id="dropdown1" class="dropdown-content">
+                    <li class="waves-effect waves-cyan"><a href="{% url 'app_blog:calculadora' %}">Calculadora</a></li>
+                    <li class="waves-effect waves-cyan"><a href="{% url 'app_blog:cronometro' %}">Cronometro</a></li>
+                    <li class="waves-effect waves-cyan"><a href="{% url 'app_blog:conversor' %}">Conversor</a></li>
+                    <li class="waves-effect waves-cyan"><a href="{% url 'app_blog:galeria' %}">Galería</a></li>
+                    <li class="waves-effect waves-cyan"><a href="{% url 'app_blog:botonfalso' %}">Botón Falso</a></li>
+                </ul>
+                <ul class="right hide-on-med-and-down">
+                    <li class="active waves-effect waves-cyan" id="homeNav"><a href="{% url 'app_blog:home' %}">Home</a></li>
+                    <li class="waves-effect waves-cyan" id="blogNav"><a href="{% url 'app_blog:blog' %}">Blog</a></li>
+                    <li class="waves-effect waves-cyan" id="curriculumNav"><a href="{% url 'app_blog:curriculum' %}">Currículum</a></li>
+                    <li><a class="dropdown-button" id="curriculumNav"href="{% url 'app_blog:home' %}" data-activates="dropdown1">Ejercicios<i class="mdi-navigation-arrow-drop-down right"></i></a></li>   
+                    <li class="waves-effect waves-cyan" id="contactoNav"><a href="{% url 'app_blog:contacto' %}">Contacto</a></li></ul>
+
+                <ul  class="side-nav" style="left: -27px;" id="nav-mobile">
+                    <li class="active"><a class="waves-effect waves-cyan" href="{% url 'app_blog:home' %}"><i class="mdi-action-home left"></i>Home</a></li>
+                    <li><a class="waves-effect waves-cyan" href="{% url 'app_blog:blog' %}"><i class="mdi-av-games left"></i>Blog</a></li>
+                    <li><a class="waves-effect waves-cyan" href="{% url 'app_blog:curriculum' %}"><i class="mdi-action-perm-contact-cal left"></i>Currículum</a></li>
+                    <li><a class="waves-effect waves-cyan" href="{% url 'app_blog:home' %}" ><i class="mdi-action-list left"></i>Ejercicios</a></li>
+                    <li><a class="waves-effect waves-cyan" href="{% url 'app_blog:contacto' %}"><i class="mdi-communication-textsms left"></i>Contacto</a></li></ul>
+                <a  class="waves-effect circle button-collapse" style="margin:0 0 0 -50px;" href="#" data-activates="nav-mobile"><i class="mdi-navigation-menu"></i></a></div>
+        </nav>
+
+        {% block contenido %}
+        {% endblock %}
+        {% block comentarios %}
+        {% endblock %}
+
+        <footer class="page-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col l6 s12">
+                        <h5 class="white-text" >Mateo de Mayo</h5>
+                        <p class="grey-text text-lighten-4">Este blog es un ejercicio para la materia Programación III de 6°C del Instituo Técnico Salesiano Villada.</p>
+                    </div>
+                    <div class="col l4 offset-l2 s12">
+                        <h5 class="white-text">Links</h5>
+                        <ul>
+                            <li><a class="waves-effect waves-light grey-text text-lighten-3 tooltipped" style="padding: 0 7px 0 7px;" target="_blank" data-position="right" data-delay="50" data-tooltip="Enlace al Github Mateosss" href="http://github.com/mateosss/">Github</a></li>
+                            <li><a class="waves-effect waves-light grey-text text-lighten-3 tooltipped" style="padding: 0 7px 0 7px;" target="_blank" data-position="right" data-delay="50" data-tooltip="Mateo de Mayo - Canal" href="https://www.youtube.com/c/MateodeMayo">Youtube</a></li>
+                            <li><a class="waves-effect waves-light grey-text text-lighten-3 tooltipped" style="padding: 0 7px 0 7px;" target="_blank" data-position="right" data-delay="50" data-tooltip="Markyoun!" href="http://github.com/mateosss/markyoun/">MarkYoun!</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <div class="container">
+                    Mayo 2015 (El mes, no mi apellido).
+                    <a class="waves-effect waves-light grey-text text-lighten-4 right tooltipped" data-position="right" data-delay="50" data-tooltip="Blog Antiguo" style="padding:0 7px 0 7px;" href="BlogViejo/index.html" target="_blank">Ver en el Formato Antiguo</a>
+                </div>
+            </div>
+        </footer>
+
+    </body>
+    <script type="text/javascript" src="{% static 'js/jquery-2.1.1.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/materialize.min.js' %}"></script>
+    <script src="{% static 'js/init.js' %}"></script>
+    <script>
+        function toast(toast){
+            Materialize.toast(toast, 4000);
+        }
+    </script>
+    {% block scripts %}
+
+
+    {% endblock %}
+
+</html>

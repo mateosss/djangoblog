@@ -1,0 +1,2 @@
+# djangoblog
+First Django Attempt

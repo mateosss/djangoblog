@@ -1,0 +1,114 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block contenido %}
+
+        <div id="index-banner" class="parallax-container">
+            <div class="row center">
+                <div class="container">
+                    <h1 class="header truncate center cyan-light-text light">Galería</h1>
+                    <div class="row center">
+                        <h5 class="header col s12">Galería con Material Design</h5>
+                        <p>Mostrando las imágenes robadas de google usadas por esta página.</p>
+                    </div >
+                </div>
+            </div>
+            <div class="parallax"><img id="imagen" src="{% static 'img/1.jpg' %}" alt="Unsplashed background img 2"></div>
+        </div>
+        <div class="container ">
+            <div class="section">
+                <div class="row">
+                    <div class="col s12 m12 l12">
+
+                        <div class="input-field card white">
+                            <div class="progress">
+                                <div class="determinate" style="width: 0%"></div>
+                            </div>
+                            <div class="row center card-content"><p>Escribe un número en milisegundos para cambiar de imagen, luego presiona enter.   </p></div>
+                            <input  class="col s10 offset-s1 m10 offset-m1 l10 offset-l1" id="tiempo" style="font-size:34px;text-align:right;"  value="7000" type="number" class="validate" placeholder ="Milisegundos para cambiar">
+                            <div class="col s12 m12 l12 row center" ><a id="btnConvertir" onclick="cambiarImagen()"class="btn-floating btn-large waves-effect waves-light cyan"><i class="mdi-hardware-keyboard-arrow-right"></i></a></div>
+                        </div>
+
+                        <div class="card-image row center" id="imgContainer">
+                            <img class="card small imgProfundidad" src="{% static 'img/1.jpg' %}">
+                        </div>
+                    </div>
+
+                </div>
+            </div></div>
+{% endblock %}
+   {% block scripts %}
+    <script>
+        var progress = 0.0;
+        var cambio = 2000;
+        var tiempo;
+        var bar;
+        var img;
+        imgs = ["1.jpg","2.jpg","3.jpg","calculadora.png","contacto.png","conversor.jpg","cronometro.jpg","dmc3.jpg","ffx.jpg","gtav1.jpg","skyrim.jpg"];
+        var enCuanto = 0.142857143;
+
+        $(document).ready(function(){
+            for(i=0;i<imgs.length;i++){
+                loadImage = new Image();
+                loadImage.src = "{% static 'img/'%}"+imgs[i];
+            }
+
+            img = $('.card-image img');
+            bar = $(".progress .determinate");
+            cambiarTiempo();
+            cambiarTamanyo();
+            tiempo = setInterval(function(){run(bar)},10);
+            $("#tiempo").change(function(){cambiarTiempo();});
+            //            img.mouseenter(function(){entra(img);});
+            //            img.mouseleave(function(){sale(img);}).css
+
+        });
+        function entra(img){
+            //modificar tamaño etc
+        }
+        function sale(img){
+            //restablecer        $(selector).animate({params},speed,callback);
+        }
+
+        function cambiarTiempo(){
+            cambio = parseInt($("#tiempo").val());
+            enCuanto = 1000/cambio;
+        }
+
+        function cambiarTamanyo(){
+            var imagen = new Image();
+            imagen.src = img.attr("src");
+            var height = imagen.height;
+            var width = imagen.width;
+            var screenW = $("#imgContainer").width();
+            var screenH = $("#imgContainer").height();
+            //console.log(screenH+" x "+screenW);//hw de la pantallla
+            //console.log(height+" - "+width);//hw real de la image
+            //console.log(img.innerWidth()+" - "+img.width());//hw que se esta mostrando en la pag
+            var relacionW = screenW / width;
+            var heightFinal = relacionW * height;
+            img.attr("width",screenW);
+            img.height(Math.floor(heightFinal))
+
+        }
+        function run(){
+            if (progress<100.0){
+                progress+=enCuanto;
+                bar.css("width",progress+"%");
+            }
+            else{
+                cambiarImagen();
+            }
+        }
+        function cambiarImagen(){
+            progress = 0;
+            bar.css("width",progress+"%");
+            var i = Math.floor(Math.random()*parseFloat(imgs.length));
+            img.attr("src","{% static 'img/'%}"+imgs[i]);
+            $("#imagen").attr("src","{% static 'img/'%}"+imgs[i]);
+            cambiarTamanyo();
+        }
+
+
+
+    </script>
+{% endblock %}

@@ -1,0 +1,102 @@
+<!DOCTYPE HTML>
+<html>
+    <meta charset="utf-8" />
+    <head>
+        <title>Mateo de Mayo</title>
+        <link rel="stylesheet" href="css/style.css" type="text/css" media="all"/> 
+        <link rel="icon" type=".png" href="res/titulo.png"/>
+    </head>
+
+    <body >
+        <nav id="navegador">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="Juegos.html">Juegos</a></li>
+                <li><a href="CV.html">CV</a></li>
+                <li><a href="Contacto.html">Contacto</a></li>
+                <li><a href="Calculadora.html">Calculadora</a></li>
+                <li><a href="Conversor.html">Conversor</a></li>         
+                <li><a href="InscripcionConcurso.html">Botón Falso</a></li>
+                <li><a href="Cronometro.html">Cronómetro</a></li>
+                <li><a href="ImagenesAleatorias.html">ImagenesAlatorias</a></li>
+            </ul>
+        </nav>
+
+        <div id="content">
+            <h1 align=center>Mateo de Mayo</h1>
+            <hr/>
+            <br/><br/>
+            <div  align=center>
+                <a href="http://www.matmartinez.net/nsfw" target="_bank"> <img src="res/MarkYoun.gif" width=128 height=128 /></a>
+            </div>
+            <br/><br/>
+            <hr/>
+            <h2>Concurso Para Ganar una Tablet Digitalizadora</h2>
+            <p>Por visitar mi blog, podés ganarte una tablet wacom!</p>
+            <div align=center><form class='contacto'>
+                <div><label>Nombre:</label><input type='text' value=''></div>
+                <div><label>Email:</label><input type='text' value=''></div>
+                <div><label>Asunto:</label><input type='text' value=''></div>
+                <div><label>Mensaje:</label><textarea rows='6'></textarea></div>
+                <div><input type='submit' value='Envia Mensaje' onMouseOver="broma(this)" onClick="tocar()"></div>
+                </form></div>
+
+
+
+        </div>
+        <div id="bot">
+            <div class="bot1">
+                <ul>
+                    <li>Mateo de Mayo</li>
+                    <br>
+                    <li>Todos los derechos reservados</li>
+                </ul>
+            </div>
+            <div class="bot2">
+                <p>Caducidad 2016</p>
+            </div>
+            <div class="bot3">
+                <a href="http://www.youtube.com" target="_blank">Canal de YouTube</a>
+                <br/>
+                <a href="http://www.github.com/mateosss">Proyectos en GitHub</a>
+                <div class="bot3"><audio controls="" height="5px" width="400px" name="media"><source src="http://petrucci.mus.auth.gr/imglnks/usimg/f/fe/IMSLP186125-PMLP05948-Bach_-_Well_Tempered_Clavier_-_Prelude_1.mp3" id="oubitch" type="audio/mpeg"></audio></div>
+            </div>
+        </div>
+    </body>
+    <script>
+        var lugar = false;
+        var primera= true;
+        var audio = new Audio('https://dl.dropboxusercontent.com/u/105638235/Blog/BlogViejo/res/oubitchgetouttheway.mp3');
+        function broma(boton){
+            if(primera){
+                primera=false;
+                console.log("play");
+                audio.play();
+                audio.loop = true;}
+                
+        if (lugar == false){
+            boton.style.float = "right";
+            boton.value = "Agarrame si podes perra!";
+            lugar = true;
+            console.log("derecha");
+            }
+        else{
+
+            console.log("izquierda");
+            boton.value = "Olé!";
+            boton.style.float = "left";
+            lugar = false;
+            }
+           
+        }
+        
+        function tocar(){   
+            alert("Good Job, pero no hay tablet :C");
+            audio.stop();
+        }
+
+    </script>
+        
+    
+
+</html>

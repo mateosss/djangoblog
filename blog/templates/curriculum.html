@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block contenido %}
+
+<div id="index-banner" class="parallax-container">
+    <div class="row center">
+        <div class="container">
+            <br><br>
+            <h1 class="header center cyan-text light">Curriculum Vitae</h1>
+            <div class="row center">
+                <h5 class="header col s12">Por que también tenemos un curriculum en la misma página que una calculadora. Oh sí! así somos.</h5>
+                <p>¿Por que está landscape? ¿Por qué no?</p>
+            </div >
+            <div class="row center">
+
+
+            </div>
+
+        </div>
+    </div>
+    <div class="parallax"><img src="{% static 'img/skyrim.jpg' %}" alt="Unsplashed background img 2"></div>
+</div>
+
+<div class="container">
+    <div class="section">
+        <div class="row center">
+
+            <h3><i class="large mdi-social-person cyan-text"></i></h3>
+            <h4>Mateo de Mayo</h4>
+            <p class="light">Capacidad de desarrollo de software enfocado al usuario y a la estética del mismo, diseño de interfaces de usuario, páginas web y aplicaciones android. </p>
+            <p class="light">Desarrollo de videojuegos para PC (Windows/Linux) y Mac, desarrollo de aplicaciones de escritorio en python y java.</p><p class="light">Diseño 3D especializado: Planos, renders, bosquejos, modelos 3D, animaciones, texturizado, etc.    </p>
+            <ul class="collapsible popout" data-collapsible="expandable">
+                <li>
+                    <div class="waves-effect waves-cyan collapsible-header"><i class="mdi-social-person-outline"></i>
+                        Información Personal</div>
+                    <div class="collapsible-body"><div class="row center">
+                        <ul style="padding-top:50px;">
+                            <li>DNI: 40987366</li>
+                            <li>Fecha de Nacimiento: 05/06/1998</li>
+                            <li>Dirección: Córdoba, Argentina, Duartes Quirós 5647</li>
+                            <li>Email: mateodemayo@gmail.com</li>
+                            <li>Estado Civil: soltero</li>
+                            <li>Teléfono: 3512702527</li>
+                        </ul><br><br></div>
+                    </div>
+                </li>
+                <li>
+                    <div class="waves-effect waves-cyan collapsible-header"><i class="mdi-action-book"></i>Estudios</div>
+                    <div class="collapsible-body"><div class="row center">
+                        <ul style="padding-top:50px;">
+                            <li>República de Libano: Primaria terminada en esta escuela en el año 20</li>
+                            <li>Instituto Técnico Salesiano Villada: Cursando el 6to año de la escuela técnica en la especialidad Programación</li>
+                            <li>Piano: 5 años de estudio particular de piano en música académica y composición</li>
+                        </ul><br><br></div>
+                    </div>
+
+                </li>
+                <li>
+                    <div class="waves-effect waves-cyan collapsible-header"><i class="mdi-navigation-fullscreen"></i>Proyectos</div>
+                    <div class="collapsible-body"><div class="row center">                                <ul style="padding-top:50px;">
+                        <li>MarkYoun: Editor de texto markdown y html</li>
+                        <li>ITSaChat: Chat en línea</li>
+                        <li>MageR: Espectacular juego de viruses</li>
+
+                        </ul><br><br></div>
+                    </div>
+
+                </div>
+            </li>
+        </ul>
+    <div class="row center">
+        <a class="waves-effect waves-light cyan btn tooltipped" data-position="right" data-delay="50" data-tooltip="www.materializecss.com" target="_blank" href="http://github.com/mateosss"> <i class="mdi-navigation-arrow-forward left"></i>GitHub</a> </div>
+
+
+</div>
+
+</div></div>
+
+{% endblock %}
+{% block scripts %}
+{% endblock %}

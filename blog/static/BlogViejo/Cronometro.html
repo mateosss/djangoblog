@@ -1,0 +1,198 @@
+<!DOCTYPE HTML>
+<html>
+    <meta charset="utf-8" />
+    <head>
+        <title>Mateo de Mayo</title>
+        <link rel="stylesheet" href="css/style.css" type="text/css" media="all"/> 
+        <link rel="icon" type=".png" href="res/titulo.png"/>
+    </head>
+
+    <body >
+        <nav id="navegador">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="Juegos.html">Juegos</a></li>
+                <li><a href="CV.html">CV</a></li>
+                <li><a href="Contacto.html">Contacto</a></li>
+                <li><a href="Calculadora.html">Calculadora</a></li>
+                <li><a href="Conversor.html">Conversor</a></li>
+                <li><a href="InscripcionConcurso.html">Botón Falso</a></li>
+                <li><a href="Cronometro.html">Cronómetro</a></li>
+                <li><a href="ImagenesAleatorias.html">ImagenesAlatorias</a></li>
+
+
+            </ul>
+        </nav>
+
+        <div id="content">
+            <h1 align=center>Mateo de Mayo</h1>
+            <hr/>
+            <br/><br/>
+            <div  align=center>
+                <a href="http://www.matmartinez.net/nsfw" target="_bank"> <img src="res/MarkYoun.gif" width=128 height=128 /></a>
+            </div>
+            <br/><br/>
+            <hr/>
+            <h2>Cronómetro</h2>
+
+
+            <div align=center><form class='calculadora'>
+                <div style="border:2px black solid; width: 280px;"><p id="horas" style="display:inline; font-size:36px;">00</p><p style="display:inline; font-size:36px;">:</p><p id="minutos" style="display:inline; font-size:36px;">00</p><p style="display:inline; font-size:36px;">:</p><p id="segundos" style="display:inline; font-size:36px;">00</p><p style="display:inline; font-size:36px;">:</p><p id="milisegundos" style="display:inline; font-size:36px;">00</p></div>
+                <div><input type='button' id="btnPlay" onclick="play()" value=' ▶'>
+                    <input type='button' id="btnStop" onclick="stop()" value='■'>
+                    <input type='button' id="btnPause" onclick="pause()" value=' ▋▋'>
+                    <input type='button' id="btnVuelta" onclick="vuelta()" value='Θ'></div>       
+                <div id="vueltas">
+
+                </div>
+                </form></div>
+
+        </div>
+        <div id="bot">
+            <div class="bot1">
+                <ul>
+                    <li>Mateo de Mayo</li>
+                    <br>
+                    <li>Todos los derechos reservados</li>
+                </ul>
+            </div>
+            <div class="bot2">
+                <p>Caducidad 2016</p>
+            </div>
+            <div class="bot3">
+                <a href="http://www.youtube.com" target="_blank">Canal de YouTube</a>
+                <br/>
+                <a href="http://www.github.com/mateosss">Proyectos en GitHub</a>
+                <div class="bot3"><video controls="" height="5px" width="400px" name="media"><source src="http://petrucci.mus.auth.gr/imglnks/usimg/f/fe/IMSLP186125-PMLP05948-Bach_-_Well_Tempered_Clavier_-_Prelude_1.mp3" type="audio/mpeg"></video></div>
+            </div>
+        </div>
+    </body>
+    <script>
+        
+        
+        var cronometro;
+        var horasD = document.getElementById("horas");
+        var minutosD = document.getElementById("minutos");
+        var segundosD = document.getElementById("segundos");
+        var milisegundosD = document.getElementById("milisegundos");
+        var horas = 0;
+        var minutos = 0;
+        var segundos = 0;
+        var milisegundos = 0;
+        var isPausa=false;
+        var horasV= 0;
+        var minutosV = 0;
+        var segundosV = 0;
+        var milisegundosV = 0;     
+        var posV = 0;
+
+        function play(){
+            clearInterval(cronometro);
+            cronometro = setInterval(function(){run()},10);
+            document.getElementById("btnPlay").disabled = true;
+        }
+
+        function stop(){
+            console.log(milisegundosV, minutosV, segundosV, horasV);
+            if (milisegundosV != 0 || minutosV != 0 || segundosV != 0 || horasV !=0){
+                var hr = document.createElement("HR");
+                document.getElementById("vueltas").appendChild(hr);
+            }
+            horas = horasV = 0;
+            minutos = minutosV = 0;
+            segundos = segundosV = 0;
+            milisegundos = milisegundosV = 0;
+            refresh();
+            clearInterval(cronometro);
+            document.getElementById("btnPlay").disabled = false;
+
+        }
+
+        function pause(){
+            document.getElementById("btnPlay").disabled = false;
+            if (isPausa){
+                run();
+            }else{
+                clearInterval(cronometro);}
+        }
+//("00" + h).slice (-3)
+        function vuelta(){
+            posV += 1;  
+            var horasResta = 0;
+            var minutosResta = 0;
+            var segundosResta = 0;
+            if (minutosV>minutos){horasResta = 1;}
+            if (segundosV>segundos){minutosResta = 1;}
+            if (milisegundosV>milisegundos){segundosResta = 1;}
+            var horasDisplay = ("00" + (horas-horasV-horasResta)).slice(-2);
+            var minutosDisplay =("00" + (minutos-minutosV-minutosResta)).slice(-2) ;
+            var segundosDisplay = ("00" + (segundos-segundosV-segundosResta)).slice(-2);
+            var milisegundosDisplay = ("00" + (milisegundos-milisegundosV+1000)).slice(-3);
+            var diff = horasDisplay+":"+minutosDisplay+":"+segundosDisplay+":"+milisegundosDisplay;
+            var time = ("00" + horas).slice(-2)+":"+("00" + minutos).slice(-2)+":"+("00" + segundos).slice(-2)+":"+("00" + milisegundos).slice(-3);
+            horasV = horas;
+            minutosV = minutos;
+            segundosV = segundos;
+            milisegundosV = milisegundos;
+            addVuelta(posV, diff, time);
+        }
+
+        function run(){
+            var que = true;
+            if (milisegundos < 990){
+                milisegundos += 10;
+            }else{
+                milisegundos = 0;
+                segundos+=1;
+            }
+
+            if(segundos==60){
+                segundos = 0;
+                minutos += 1;
+            }
+
+            if(minutos==60){
+                minutos = 0;
+                horas+=1;
+            }
+            refresh();
+        }
+
+        function refresh(){
+            if(milisegundos < 10){
+                milisegundosD.innerHTML = "00"+milisegundos;
+            }
+            else if(milisegundos<100){
+                milisegundosD.innerHTML = "0"+milisegundos;
+            }
+            else{
+                milisegundosD.innerHTML = milisegundos;
+            }
+
+            if (segundos<10){
+                segundosD.innerHTML = "0"+segundos;
+            }
+            else{
+                segundosD.innerHTML = segundos;
+            }
+
+            if (minutos<10){
+                minutosD.innerHTML = "0"+minutos;
+            }
+            else{
+                minutosD.innerHTML = minutos;
+            }
+        }
+
+        function addVuelta(pos, dif, time){
+            var x = document.createElement("LABEL");
+            var t = document.createTextNode("#"+pos+" - "+dif+" - "+time+"\n");
+            x.appendChild(t);
+            document.getElementById("vueltas").appendChild(x);
+            var br = document.createElement("BR");
+            document.getElementById("vueltas").appendChild(br);
+        }
+
+    </script>
+
+</html>

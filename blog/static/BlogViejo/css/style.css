@@ -1,0 +1,314 @@
+body {
+    background-image:url("img/fondo.png");
+
+}
+
+html, body { cursor:url('http://www.cursor.cc/cursor/737/31/cursor.png'), auto !important; }
+
+h1{
+    color: #000;
+}
+
+
+h2{
+    color: white;
+    background-color: black;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    border: 5px solid #fff;
+    transition:all 500ms ease;
+
+}
+
+
+h2:hover{
+
+    background-color: #fff;
+    border: 5px solid #000;
+    color:black;
+    font-weight:bold;
+    transition:all 500ms ease;
+}
+
+a:hover{
+    background-color: #fff;
+    color:black;
+    border: 5px solid #000;
+    font-weight:bold;
+    transition:all 500ms ease;
+
+}
+.textoEspecial{
+    color:darkslategray;
+
+}
+#navegador{
+    position: fixed;
+    float: left;
+    width: 15%;    
+}
+#navegador ul{
+    overflow: hidden;
+    list-style-type: none;
+    font-size: 20px;
+    padding-left: 5px;
+}
+
+#navegador li{
+    text-align: left;
+    margin: 0 10px 0 0;
+}
+
+#navegador li a {
+    padding: 2px 7px 2px 7px;
+    color: #fff;
+    background-color: #000000;
+    padding: 20px 10px;
+    border: 1px solid #000;
+    text-decoration: none;
+    vertical-align: super;
+    display: block;
+    margin-right: 5px;
+    transition:all 500ms ease;
+}
+
+#navegador li a:hover{
+    background-color: #fff;
+    border: 10px solid #000;
+    color: #000;
+    transition:all 500ms ease;
+}
+
+
+
+#content{
+    /*    background-image: url("http://www.fondox.net/wallpapers/resoluciones/13/textura-de-papel-antiguo_1024x768_1552.jpg");*/
+    background-color: white;
+    display: block;
+    width: 70%;
+    float:left; 
+    margin-left: 15%;
+    border: 2px solid #000;
+    text-align: center;
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+
+}
+
+#content iframe{
+    width: 640px;
+    height: 360px;
+
+
+}
+
+.derecha img{
+    float: right;
+    margin-left: 20px;
+    border: 4px solid #000;
+    transition:all 500ms ease;
+}
+
+.derecha img:hover{
+    margin-left: 20px;
+    border: 4px solid #000;
+    width: 100%;
+    height: 100%;
+    transition:all 500ms ease;
+}
+
+#bot{
+    width: 70%;
+    color: white;
+    float: left;
+    width: 70%;
+    background-color: black;
+    border: 2px solid #fff;
+    font-size: 12px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    margin-left: 15%;
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+
+}
+#bot:hover{
+    color:black;
+    background-color:white;
+    border: 5px solid #000;
+    transition:all 500ms ease;
+}
+.bot1{
+    text-align: center;
+    float: left;
+}
+.bot1 li{
+    display: block;
+    margin: -5px;
+}
+
+.bot2{
+    float: right;
+    margin-right: 50px;
+}
+
+.bot3{
+    float: right;
+    padding-top: 10px;
+    padding-right: 50px;
+}
+
+/**contactirijillo**/
+.contacto{
+    padding-left: 45px ;
+
+}
+.contacto label{
+    display: block;
+    font-weight: bold;
+    color: #000;
+}
+.contacto div{
+    margin-bottom: 15px;
+    margin-left: -5%;
+}
+.contacto input[type='text'], .contacto textarea{
+    padding: 7px 6px;
+    width: 294px;
+    border: 1px solid #000;
+
+    box-shadow:0 0 0 1px #000;
+    margin: 5px 0;
+    transition:all 500ms ease;
+
+}
+
+.contacto input[type='text']:focus, .contacto textarea:focus{
+    outline: none;
+    box-shadow:0 0 0 3px #000;
+    transition:all 500ms ease;
+}
+.contacto input[type='submit']{
+    border: 1px solid #000;
+    padding: 8px 16px;
+    background: #fff;
+    width: 200px;
+    height: 50px;
+    transition:all 200ms ease;
+}
+.contacto input[type='submit']:hover{
+    cursor: pointer;
+    border: 5px solid #000;
+    /*    border-radius: 20px;*/
+    transition:all 200ms ease;
+}
+.contacto input[type='submit']:active{
+    background: #000;
+    color: #fff;
+    transition:all 200ms ease;
+}
+/*Calculadora y cronometro*/
+.calculadora div{
+    margin-bottom: 15px;
+}
+
+.calculadora input[type='button']{
+    font-size: 22px;
+    border: 2px solid #000;
+    width: 50px;
+    height: 50px;
+    /*    box-shadow:0 0 0 3px #000;*/
+    margin-left: 5px;
+    background-color: white;
+    transition:all 300ms ease;
+}
+
+.calculadora input[type='button']:hover{
+    border: 5px solid #000;
+    cursor: pointer;
+    /*    box-shadow:0 0 0 3px #000;*/
+    transition:all 200ms ease;
+}
+
+
+.calculadora input[type='button']:active{
+    color: white;
+    background-color: black;
+    width: 55px;
+    height: 55px;
+    cursor: pointer;
+    /*    box-shadow:0 0 0 3px #000;*/
+    transition:all 200ms ease;
+}
+
+.calculadora input[id='btnIgual']{
+    color: white;
+    background-color: #000;
+    cursor: pointer;
+
+    transition:all 200ms ease;
+}
+
+.calculadora input:disabled{
+    background-color: #444;
+    color: #777;
+    border: 2px solid #444;
+    transition:all 200ms ease;
+
+}
+
+.calculadora input[id='btnIgual']:active, .calculadora input[id='btnCE']:active{
+    width: 80px;
+    height: 80px;
+    transition:all 200ms ease;
+}
+
+.calculadora textarea{
+    background-color: white;
+    color: black;
+    border: 2px solid #000;
+    height: 50px;
+    width: 220px;
+    font-size: 36px;
+    transition:all 500ms ease;
+
+}
+
+.calculadora textarea:focus{
+    border: 5px solid #000;
+    width: 60%;
+    height: 90px;
+    transition:all 500ms ease;
+}
+
+.progressbar{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+    border: 2px solid #000;
+    width: 270px;
+    height: 30px;
+    background-color:#fff;
+
+
+
+}
+progress[value] {color:black}
+progress::-webkit-progress-bar-value {background:black;}
+progress::-webkit-progress-value {background:black;}
+progress::-moz-progress-bar {background:black;}
+
+/*Funciones de la calculadora no activas*/
+.calculadora input[id='btnExp']:active, .calculadora input[id='btnRaiz']:active, .calculadora input[id='btnPotencia']:active, .calculadora input[id='btnFactorial']:active{
+    border: 2px solid #fff ;
+    background-color: white;
+    color:white;
+    transition:all 500ms ease;
+
+} 
+
+
+
