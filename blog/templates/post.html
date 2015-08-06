@@ -96,7 +96,7 @@
             dataType: "json",
             success: function(result){
                 console.log(result)
-                $("#comentarios").append("<h5>"+result.nombre+"</h5><small>"+result["fecha"]+"</small><p>"+result["mensaje"]+"</p><hr>");
+                $("#comentarios").prepend("<h5>"+result.nombre+"</h5><small>"+result.fecha+"</small><p>"+result.mensaje+"</p><hr>");
             },
             error: function(err){
                 console.log("Error");

@@ -75,11 +75,12 @@ def comentar(request):
         comentario.nombre = nombre
         comentario.entrada = Entrada.objects.get(id=id_post)
         comentario.save()
-        os.system("zenity --info --text  \"holis"+comentario.nombre+"\"")                
-        comentarioReturn = {"nombre": comentario.nombre, "fecha": comentario.fecha, "mensaje":comentario.mensaje}
+        pato = "\""+str(type(comentario.fecha))+"\""
+        comentarioReturn = {"nombre": comentario.nombre, "fecha": "Ahora", "mensaje":comentario.mensaje}
     #return render_to_response('post.html',{'comentario':comentarioReturn},context)
+    #return render_json_response(comentarioReturn)
     return HttpResponse(json.dumps(comentarioReturn), content_type="application/json")
-
+    
 def verPost(request, id_post):
     context = RequestContext(request)    
     mi_post = Entrada.objects.get(id=id_post)
