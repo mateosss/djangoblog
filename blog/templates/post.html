@@ -25,11 +25,12 @@
 
 {% endblock %}
 {% block comentarios %}
-<h3 class="section-heading">Comentarios</h3>
+
+<h3 class="section-heading row center">Comentarios</h3>
 <div class="container">
     <div class="row center">
         <div class="col s12 m12 l12">
-            <div class="card-panel">
+            <div id = "comentarios" class="card-panel">
                 {% for comentario in comentarios %}
                 <h5>{{comentario.nombre}}</h5>
                 <small>{{comentario.fecha}}</small>
@@ -63,15 +64,16 @@
                     <div class="col s12 m6 offset-m3 l6 offset-l3">
                         <div class="row">
                             <div class="input-field col s12">
-                                <textarea name="mensaje" rows="5" required data-validation-required-message="Por favor ingrese mensaje" id="textarea1" class="form-control materialize-textarea"></textarea>
+                                <textarea name="mensaje" id="message" rows="5" required data-validation-required-message="Por favor ingrese mensaje" id="textarea1" class="form-control materialize-textarea"></textarea>
                                 <label for="textarea1">Mensaje</label>
                             </div>
                         </div>
                     </div>
                 </div>
-                <button class="modal-trigger btn-large waves-effect waves-light cyan" name="action" href="#modal1">Enviar
+<!--                modal-trigger en class y href="#modal1" del boton para el cartel-->
+                <a id="enviar" class="btn-large waves-effect waves-light cyan" name="action" >Comentar
                     <i class="mdi-content-send right"></i>
-                </button>
+                </a>
             </div>
 
         </div></form>
@@ -79,5 +81,28 @@
 {% endblock %}
 
 {% block scripts %}
-
+<script>
+    $("#enviar").click(function(){        
+        var data={
+            csrfmiddlewaretoken: '{{ csrf_token }}',
+            id:'{{post.id}}',
+            nombre:$('#name').val(),
+            mensaje:$('#message').val(),
+        }
+        $.ajax({
+            type: "POST",
+            url: "{% url 'app_blog:comentar' %}",
+            data: data,
+            dataType: "json",
+            success: function(result){
+                console.log(result)
+                $("#comentarios").append("<h5>"+result.nombre+"</h5><small>"+result["fecha"]+"</small><p>"+result["mensaje"]+"</p><hr>");
+            },
+            error: function(err){
+                console.log("Error");
+                console.log(err.responseText);
+            },
+        });
+    });
+</script>
 {% endblock %}
