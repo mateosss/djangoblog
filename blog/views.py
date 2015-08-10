@@ -6,15 +6,9 @@ from models import Entrada, Comentario
 from django.core.mail import EmailMessage
 import json
 import os
-#from blog.models import Entrada, Contacto, Comentario
-# Create your views here.
 def home(request):
     context = RequestContext(request)
-    #os.system("zenity --info --text  \"holis"+"pepe"+"\"")
-    #posts = Entrada.objects.all()
-    #posts = Entrada.objects.filter(published = True)
     return render_to_response('index.html', 
-                              #{'posts':posts},
                               context)
 
 def blog(request):
@@ -26,32 +20,26 @@ def blog(request):
 def calculadora(request):
     context = RequestContext(request)
     return render_to_response('calculadora.html', 
-                              #{'posts':posts},
                               context)
 def cronometro(request):
     context = RequestContext(request)
     return render_to_response('cronometro.html', 
-                              #{'posts':posts},
                               context)
 def conversor(request):
     context = RequestContext(request)
     return render_to_response('conversor.html', 
-                              #{'posts':posts},
                               context)
 def galeria(request):
     context = RequestContext(request)
     return render_to_response('galeria.html', 
-                              #{'posts':posts},
                               context)
 def botonfalso(request):
     context = RequestContext(request)
     return render_to_response('botonfalso.html', 
-                              #{'posts':posts},
                               context)
 def curriculum(request):
     context = RequestContext(request)
     return render_to_response('curriculum.html', 
-                              #{'posts':posts},
                               context)
 def contacto(request):
     context = RequestContext(request)
@@ -75,11 +63,9 @@ def comentar(request):
         comentario.nombre = nombre
         comentario.entrada = Entrada.objects.get(id=id_post)
         comentario.save()
-        pato = "\""+str(type(comentario.fecha))+"\""
         comentarioReturn = {"nombre": comentario.nombre, "fecha": "Ahora", "mensaje":comentario.mensaje}
-    #return render_to_response('post.html',{'comentario':comentarioReturn},context)
-    #return render_json_response(comentarioReturn)
-    return HttpResponse(json.dumps(comentarioReturn), content_type="application/json")
+    	return HttpResponse(json.dumps(comentarioReturn), content_type="application/json")
+	return None	
     
 def verPost(request, id_post):
     context = RequestContext(request)    
